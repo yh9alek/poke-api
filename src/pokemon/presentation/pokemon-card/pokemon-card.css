@@ -3,6 +3,7 @@
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0px 2px 6px #0000002a;
+    transition: all .15s ease-out;
 }
 
 .card > figure {
@@ -12,6 +13,11 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
+}
+
+.card:hover {
+    background-color: #223a68;
+    cursor: pointer;
 }
 
 .card__image {
