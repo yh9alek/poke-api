@@ -15,12 +15,9 @@
 }
 
 .card__image {
+    image-rendering: pixelated;
     display: block;
-    width: 30%;
-}
-
-.card__image.loaded {
-    width: 250px;
+    width: 200px;
 }
 
 .card__data {

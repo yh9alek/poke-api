@@ -1,13 +1,16 @@
+import { renderPokemon } from "../use-cases";
+
 const state = {
     pokemons: [],
 };
 
 /**
- * 
+ * @param {HTMLDivElement} cardsRoot
  * @param {string} name 
  */
-const callPokemon = async (name) => {
+const callPokemon = async (cardsRoot, name) => {
     state.pokemons = [];
+    cardsRoot.innerHTML = '';
     let url = import.meta.env.VITE_API_URL;
 
     name = name ? 
@@ -26,9 +29,11 @@ const callPokemon = async (name) => {
             resp = await fetch(result.url);
             data = await resp.json();
             state.pokemons.push(data);
+            renderPokemon(cardsRoot, data);
         });
     } else {
         state.pokemons.unshift(data);
+        renderPokemon(cardsRoot, data);
     }
 }
 

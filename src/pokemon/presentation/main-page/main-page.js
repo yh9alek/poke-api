@@ -1,7 +1,6 @@
 import html from './main-page.html?raw';
 import './main-page.css';
 import service from '../../store/store';
-import { renderPokemons } from '../../use-cases';
 
 /**
  * 
@@ -15,9 +14,7 @@ export const MainPageComponent = (appRoot) => {
     const searchInput = document.querySelector('.search__input');
     searchInput.addEventListener('keydown', async e => {
         if(e.keyCode === 13) {
-            await service.callPokemon(searchInput.value);
-            console.log(service.getPokemons());
-            renderPokemons(cardsRoot, service.getPokemons());
+            await service.callPokemon(cardsRoot, searchInput.value);
         }
     });
 }

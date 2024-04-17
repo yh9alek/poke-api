@@ -1,1 +1,1 @@
-export { renderPokemons } from "./render-pokemons";
+export { renderPokemon } from "./render-pokemon";
