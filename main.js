@@ -6,6 +6,5 @@ import './style.css'
   const app = document.querySelector('#app');
 
   AppRoot(app); // Corazón de la aplicación
-
 })();
 

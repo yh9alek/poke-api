@@ -1,5 +1,7 @@
 import html from './main-page.html?raw';
 import './main-page.css';
+import service from '../../store/store';
+import { renderPokemons } from '../../use-cases';
 
 /**
  * 
@@ -7,4 +9,15 @@ import './main-page.css';
  */
 export const MainPageComponent = (appRoot) => {
     appRoot.innerHTML += html;
+
+    const cardsRoot = document.querySelector('.cards');
+
+    const searchInput = document.querySelector('.search__input');
+    searchInput.addEventListener('keydown', async e => {
+        if(e.keyCode === 13) {
+            await service.callPokemon(searchInput.value);
+            console.log(service.getPokemons());
+            renderPokemons(cardsRoot, service.getPokemons());
+        }
+    });
 }

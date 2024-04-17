@@ -1,0 +1,1 @@
+export { renderPokemons } from "./render-pokemons";
